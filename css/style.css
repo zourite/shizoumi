@@ -1,0 +1,67 @@
+h1 {
+
+    margin-top : 0em;
+    margin-bottom : 0em;
+
+}
+
+.ordi-img {
+
+    transform: scale(-1,1);
+    animation: slide-in 0.5s forwards;
+    animation-duration: 0.5s;
+    
+}
+/* #playground {
+
+    background: url('/img/background.jpg');
+    min-height: 500px;
+    min-width: 100%;
+
+} */
+
+.player-img {
+
+   animation: slide-out 0.5s forwards;
+   animation-duration: 0.5s;
+  
+}
+
+.ordi-img, .player-img {
+
+    border: none;
+    /* position: absolute; */
+    display: block;
+}
+
+.elem img {
+
+    display: none;
+
+}
+
+@keyframes slide-in {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+@keyframes slide-out {
+
+    from {
+        margin-left: -100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,6 @@
+projectKey=shifumi
+serverUrl=http://localhost:9000
+serverVersion=8.4.1.35646
+dashboardUrl=http://localhost:9000/dashboard?id=shifumi
+ceTaskId=AXPuDQ6IlnpSukkKftek
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXPuDQ6IlnpSukkKftek
