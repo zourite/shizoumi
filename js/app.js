@@ -9,21 +9,29 @@ var ordiImg = document.querySelectorAll('.ordi-img');
 var info = document.getElementById('info');
 var res  = document.getElementById('resultat');
 
-function getScore(data,j,o) {
+var regles = {"ciseaux" : { 
 
-    console.log("Filtering based on " + JSON.stringify(data))
-    console.log(data)
-    
+    "ciseaux" : 0,
+    "pierre" : 0,
+    "feuille" : 1
 
-}
+},
 
-fetch("js/rules.json")
-    .then(response => response.json())
-    .then(json => 
-        
-        getScore(json)
-    
-);
+"pierre" : {
+
+    "ciseaux" : 1,
+    "pierre" : 0,
+    "feuille" : 0
+
+},
+
+"feuille" : {
+
+    "ciseaux" : 0,
+    "pierre" : 1,
+    "feuille" : 0
+
+}}
 
 for(var i = 0; i < main.length; i++){
 
@@ -84,12 +92,11 @@ function compare(joueur) {
     var choixO = shifumi[Math.floor(Math.random()*shifumi.length)];
 
     showImg(ordiImg, choixO)
-
     
-    
-    // totalU += regles[joueur][choixO];
+    totalU += regles[joueur][choixO];
 
-    // totalO += regles[choixO][joueur];
+    totalO += regles[choixO][joueur];
+
 
     ega = regles[joueur][choixO] + regles[choixO][joueur];
 
