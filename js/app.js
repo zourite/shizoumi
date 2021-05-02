@@ -1,27 +1,22 @@
-var totalU = 0;
-var totalO = 0;
-var manche = 3;
-var nul = 0;
-var shifumi = [];
-var main = document.querySelectorAll(".play");
-var playerImg = document.querySelectorAll('.player-img');
-var ordiImg = document.querySelectorAll('.ordi-img');
-var info = document.getElementById('info');
-var res  = document.getElementById('resultat');
-
-var regles = rules;
-
 for(var i = 0; i < main.length; i++){
 
      shifumi.push(main[i].dataset.player);
 
 }
 
-function showImg(img, choix) {
+function hideImg(img) {
 
     img.forEach((userItem) => {
 
-        userItem.style.display = 'none';
+            userItem.style.display = 'none';
+
+    });
+
+}
+
+function showImg(img, choix) {
+
+    img.forEach((userItem) => {
 
         if (userItem.dataset.elem == choix) {
 
@@ -32,21 +27,20 @@ function showImg(img, choix) {
     });
 }
 
-function hideImg(img) {
-
-    img.forEach((userItem) => {
-
-            userItem.style.display = 'none';
-
-        });
-
-}
-
 function play(e) {
 
+    hideImg(playerImg)
+    hideImg(ordiImg)
+
+    setTimeout(function() {
+
+        showImg(playerImg,joueur)
+        showImg(ordiImg, choixO)
+    
+    }, (0,5 * 1));
+
     let joueur = e.dataset.player;
-   
-    showImg(playerImg,joueur)
+    let choixO = shifumi[Math.floor(Math.random()*shifumi.length)];
 
     manche--;
 
@@ -63,23 +57,18 @@ function play(e) {
 
     if(manche >= 0) {
 
-        compare(joueur);
+        compare(joueur,choixO);
         
     } 
     
     
 }
 
-function compare(joueur) {
+function compare(joueur, choixO) {
 
-    var choixO = shifumi[Math.floor(Math.random()*shifumi.length)];
-
-    showImg(ordiImg, choixO)
-    
     totalU += regles[joueur][choixO];
 
     totalO += regles[choixO][joueur];
-
 
     ega = regles[joueur][choixO] + regles[choixO][joueur];
 

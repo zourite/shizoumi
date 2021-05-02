@@ -1,4 +1,14 @@
-var rules =  {
+var totalU = 0;
+var totalO = 0;
+var manche = 3;
+var nul = 0;
+var shifumi = [];
+var main = document.querySelectorAll(".play");
+var playerImg = document.querySelectorAll('.player-img');
+var ordiImg = document.querySelectorAll('.ordi-img');
+var info = document.getElementById('info');
+var res  = document.getElementById('resultat');
+var regles =  {
     "ciseaux" : 
     { 
 

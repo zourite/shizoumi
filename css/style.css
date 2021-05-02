@@ -1,3 +1,9 @@
+.container {
+
+    margin-top: 20px;
+
+}
+
 h1 {
 
     margin-top : 0em;
@@ -12,13 +18,13 @@ h1 {
     animation-duration: 0.5s;
     
 }
-/* #playground {
 
-    background: url('/img/background.jpg');
-    min-height: 500px;
+#playground {
+
+    min-height: 300px;
     min-width: 100%;
 
-} */
+}
 
 .player-img {
 
@@ -30,14 +36,13 @@ h1 {
 .ordi-img, .player-img {
 
     border: none;
-    /* position: absolute; */
-    display: block;
+    max-height: 300px;
 }
 
 .elem img {
 
     display: none;
-
+    
 }
 
 
