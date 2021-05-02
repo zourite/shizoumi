@@ -9,29 +9,7 @@ var ordiImg = document.querySelectorAll('.ordi-img');
 var info = document.getElementById('info');
 var res  = document.getElementById('resultat');
 
-var regles = {"ciseaux" : { 
-
-    "ciseaux" : 0,
-    "pierre" : 0,
-    "feuille" : 1
-
-},
-
-"pierre" : {
-
-    "ciseaux" : 1,
-    "pierre" : 0,
-    "feuille" : 0
-
-},
-
-"feuille" : {
-
-    "ciseaux" : 0,
-    "pierre" : 1,
-    "feuille" : 0
-
-}}
+var regles = rules;
 
 for(var i = 0; i < main.length; i++){
 
@@ -43,14 +21,15 @@ function showImg(img, choix) {
 
     img.forEach((userItem) => {
 
-            userItem.style.display = 'none';
+        userItem.style.display = 'none';
 
-            if (userItem.dataset.elem == choix) {
+        if (userItem.dataset.elem == choix) {
 
-                userItem.style.display = 'block';
+            userItem.style.display = 'block';
 
-            }
-        });
+        }
+
+    });
 }
 
 function hideImg(img) {
@@ -71,11 +50,7 @@ function play(e) {
 
     manche--;
 
-    if(manche >= 0) {
-
-        compare(joueur);
-        
-    } else {
+    if(manche == 0) {
 
         document.getElementById('new-game').classList.remove('disabled')
 
@@ -85,6 +60,14 @@ function play(e) {
    
         });
     }
+
+    if(manche >= 0) {
+
+        compare(joueur);
+        
+    } 
+    
+    
 }
 
 function compare(joueur) {

@@ -1,4 +1,6 @@
-{"ciseaux" : { 
+var rules =  {
+    "ciseaux" : 
+    { 
 
         "ciseaux" : 0,
         "pierre" : 0,
@@ -6,7 +8,9 @@
 
     },
 
-    "pierre" : {
+    "pierre" : 
+    
+    {
 
         "ciseaux" : 1,
         "pierre" : 0,
@@ -14,12 +18,13 @@
 
     },
 
-    "feuille" : {
+    "feuille" : 
+    {
 
         "ciseaux" : 0,
         "pierre" : 1,
         "feuille" : 0
-
-}}
+    }
+}
 
 
