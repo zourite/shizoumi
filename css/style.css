@@ -95,7 +95,7 @@ h1 {
 #playground {
 
     
-    background-image: url('/img/earth.png');
+    background-image: url('../img/earth.png');
     background-repeat: no-repeat;
     background-position: center center;
     margin-top: 30px;
