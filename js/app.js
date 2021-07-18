@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("ship1").classList.add('fly');
+});
+
 for(var i = 0; i < main.length; i++){
 
      shifumi.push(main[i].dataset.player);
@@ -29,6 +33,8 @@ function showImg(img, choix) {
 
 function play(e) {
 
+    // document.getElementById('intro').style.display = 'none';
+
     hideImg(playerImg)
     hideImg(ordiImg)
 
@@ -41,6 +47,26 @@ function play(e) {
 
     let joueur = e.dataset.player;
     let choixO = shifumi[Math.floor(Math.random()*shifumi.length)];
+
+    console.log(manche);
+
+    if(manche == 3 && regles[choixO][joueur] > regles[joueur][choixO] ) {
+
+        document.getElementById("ship3").classList.add('fly');
+
+    }
+
+    if(manche == 2 && regles[choixO][joueur] > regles[joueur][choixO] ) {
+
+        document.getElementById("ship2").classList.add('fly2');
+
+    }
+
+    if(manche == 1 && regles[choixO][joueur] > regles[joueur][choixO] ) {
+
+        document.getElementById("ship4").classList.add('fly2');
+
+    }
 
     manche--;
 
@@ -94,8 +120,10 @@ function compare(joueur, choixO) {
 
     }
 
-    res.innerHTML = "Bot " + totalO + " / Humain " + totalU + " / nul " + nul;
+    jpt.innerHTML = totalU;
+    opt.innerHTML = totalO;
 
+   
 
     if(manche == 0) {
 

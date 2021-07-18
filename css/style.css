@@ -1,7 +1,75 @@
+body {
+
+    background-color: #f1faee;
+
+}
+
+img {
+
+    border: none;
+}
 .container {
 
     margin-top: 20px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+}
 
+#intro {
+
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    position: absolute;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 4;
+    height: 100%;
+    background-color: #a8dadc;
+}
+
+#arrow {
+
+   padding-top: 20px;
+
+}
+
+#arrow img {
+
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: MoveUpDown 1s linear infinite;
+    position : relative;
+    left: 0;
+    bottom: 0;
+
+}
+
+#resultat {
+
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+#resultat img {
+
+    width: 30px;
+    display: inline-block;
+    border: none;
 }
 
 h1 {
@@ -11,6 +79,11 @@ h1 {
 
 }
 
+#content {
+
+    width: 100%;
+    overflow: hidden;
+}
 .ordi-img {
 
     transform: scale(-1,1);
@@ -21,9 +94,64 @@ h1 {
 
 #playground {
 
-    min-height: 300px;
+    
+    background-image: url('/img/earth.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: 30px;
     min-width: 100%;
+    min-height: 387px;
+    position: relative;
+}
 
+#alien-zone {
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#alien-zone img {
+
+    display: inline-block;
+    animation: float 2s infinite ease-in-out;
+    position: absolute;
+    
+    
+}
+
+#alien-zone img.fly {
+
+    animation: flyshipfly 3s cubic-bezier(.03,.34,1,.11) alternate forwards;    
+}
+
+#alien-zone img.fly2 {
+
+    animation: flyshipfly2 3s cubic-bezier(.03,.34,1,.11) alternate forwards;    
+}
+
+#ship1 {
+
+    top : 0;
+    left : 0;
+}
+
+#ship2 {
+
+    top : 0;
+    right : 0;
+}
+
+#ship3 {
+
+    bottom : 0;
+    left : 0;
+}
+
+#ship4 {
+
+    bottom : 0;
+    right : 0;
 }
 
 .player-img {
@@ -39,12 +167,33 @@ h1 {
     max-height: 300px;
 }
 
-.elem img {
+.elem img, #new-game {
 
     display: none;
     
 }
 
+#resultat path {
+
+    fill: #1d3557;
+
+}
+
+#info {
+
+    text-align: center;
+}
+
+#cpt, #jpt {
+
+    font-weight: bold;
+    color: #457b9d;
+}
+
+#cpt {
+
+    text-align: right;
+}
 
 
 @keyframes slide-in {
@@ -69,6 +218,59 @@ h1 {
     to {
         margin-left: 0%;
         width: 100%;
+    }
+}
+
+
+@keyframes MoveUpDown {
+    0%, 100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 20px;
+    }
+}
+
+@keyframes float {
+    0% {
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+    }
+  
+    50% {
+      transform: translateY(1rem);
+      -webkit-transform: translateY(1rem);
+    }
+  
+    100% {
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+    }
+}
+
+@keyframes flyshipfly {
+    from { 
+        left : 0;
+        transform: rotate(6deg) scale(1) ; 
+    }
+    to { 
+        left: 440px;
+        transform: rotate(0deg) scale(0);
+        box-shadow: 75px 35px 75px #e08524;
+        border-radius:50em;
+    }
+}
+
+@keyframes flyshipfly2 {
+    from { 
+        right : 0;
+        transform: rotate(6deg) scale(1) ; 
+    }
+    to { 
+        right : 440px;
+        transform: rotate(0deg) scale(0);
+        box-shadow: 75px 35px 75px #e08524;
+        border-radius:50em;
     }
 }
 

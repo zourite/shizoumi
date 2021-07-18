@@ -7,7 +7,8 @@ var main = document.querySelectorAll(".play");
 var playerImg = document.querySelectorAll('.player-img');
 var ordiImg = document.querySelectorAll('.ordi-img');
 var info = document.getElementById('info');
-var res  = document.getElementById('resultat');
+var jpt  = document.getElementById('jpt');
+var opt  = document.getElementById('cpt');
 var regles =  {
     "ciseaux" : 
     { 
