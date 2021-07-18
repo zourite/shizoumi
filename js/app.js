@@ -48,8 +48,6 @@ function play(e) {
     let joueur = e.dataset.player;
     let choixO = shifumi[Math.floor(Math.random()*shifumi.length)];
 
-    console.log(manche);
-
     if(manche == 3 && regles[choixO][joueur] > regles[joueur][choixO] ) {
 
         document.getElementById("ship3").classList.add('fly');
@@ -106,17 +104,17 @@ function compare(joueur, choixO) {
 
     if(regles[joueur][choixO] < regles[choixO][joueur] && ega > 0) {
  
-        info.innerHTML = "Bots control the world he choose &nbsp;" + choixO + " and you choose &nbsp;" + joueur;
+        info.innerHTML = "Les aliens nous envahissent ils ont choisi, &nbsp;" + choixO + " et tu as choisi &nbsp;" + joueur;
     
     } else if(regles[joueur][choixO] > regles[choixO][joueur] && ega > 0) {
 
-        info.innerHTML = "vous avez choisi &nbsp;" + joueur + " vous avez gagné le bot à choisi &nbsp;" + choixO;
+        info.innerHTML = "vous avez choisi &nbsp;" + joueur + " l'alien à choisi &nbsp;" + choixO;
         
     } 
     
     else {
 
-        info.innerHTML =  "Human choose &nbsp;" + joueur + " and bot &nbsp;" + choixO + " we live in harmony"
+        info.innerHTML =  "Vous avez choisi &nbsp;" + joueur + " et &nbsp;" + choixO + ". Égalité !"
 
     }
 
@@ -129,15 +127,31 @@ function compare(joueur, choixO) {
 
         if(totalU > totalO) {
 
-        info.innerHTML = info.innerHTML + " <br> la partie est terminé vous avez gagné";
+        info.innerHTML = info.innerHTML + " <br> la partie est terminé ! Vous avez gagné";
         
         } else if (totalU < totalO) {
 
-            info.innerHTML = info.innerHTML + "<br> la partie est terminé le bot à gagné";
+            ships.forEach(ship => { 
+                
+                if(!ship.matches( '[class*=fly]')) {
+                   
+                   var number = ship.id.substr(ship.id.length - 1)
+
+                    if(number%2 == 0) {
+
+                        document.getElementById('ship'+number).classList.add('fly2')
+
+                    }  else {
+                        
+                        document.getElementById('ship'+number).classList.add('fly')
+                    }
+                }
+            })
+            info.innerHTML = info.innerHTML + "<br> la partie est terminé les aliens ont gagné";
 
         } else {
 
-            info.innerHTML = info.innerHTML + "<br> la partie est terminé humans and bots live in harmony";
+            info.innerHTML = info.innerHTML + "<br> la partie est terminé. Les humains et les aliens vivent en harmonie";
         }
     }
 }

@@ -9,6 +9,7 @@ var ordiImg = document.querySelectorAll('.ordi-img');
 var info = document.getElementById('info');
 var jpt  = document.getElementById('jpt');
 var opt  = document.getElementById('cpt');
+var ships = document.querySelectorAll("[id*=ship]");
 var regles =  {
     "ciseaux" : 
     { 
