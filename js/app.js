@@ -71,11 +71,12 @@ function play(e) {
     if(manche == 0) {
 
         document.getElementById('new-game').classList.remove('disabled')
+        document.getElementById('new-game').style.display = "block";
 
         main.forEach(function(button) {
 
             button.disabled = true; 
-   
+            button.style.display = "none";
         });
     }
 
@@ -157,9 +158,38 @@ function compare(joueur, choixO) {
 }
 
 function newgame() {
+
+    ships.forEach(ship => { 
+                
+        if(!ship.matches( '[class*=fly]')) {
+           
+           var number = ship.id.substr(ship.id.length - 1)
+
+           console.log('toto');
+
+            if(number%2 == 0) {
+
+                document.getElementById('ship'+number).classList.remove('fly2')
+                console.log('tato');
+            }  else {
+                
+                document.getElementById('ship'+number).classList.remove('fly')
+                console.log('tota');
+            }
+
+            if(ship.id == "ship1") {
+
+                document.getElementById('ship1').classList.add('fly')
+
+            }
+        }
+    })
     
     document.getElementById('new-game').classList.add('disabled')
-    
+    document.getElementById('new-game').style.display = "none";
+
+    totalU = 0;
+    totalO = 0;
     manche = 3;
     
     hideImg(playerImg)
@@ -168,6 +198,6 @@ function newgame() {
     main.forEach(function(button) {
 
         button.disabled = false; 
-
+        button.style.display = "block";
     });
 }
