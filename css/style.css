@@ -264,12 +264,12 @@ h1 {
 @keyframes flyshipfly2 {
     from { 
         right : 0;
-        transform: rotate(6deg) scale(1) ; 
+        transform: rotate(-6deg) scale(1) ; 
     }
     to { 
         right : 440px;
         transform: rotate(0deg) scale(0);
-        box-shadow: 75px 35px 75px #e08524;
+        box-shadow: -75px 35px 75px #e08524;
         border-radius:50em;
     }
 }

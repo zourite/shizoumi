@@ -157,34 +157,35 @@ function compare(joueur, choixO) {
     }
 }
 
-function newgame() {
-
+document.getElementById('new-game').addEventListener("click", function() { 
+    
     ships.forEach(ship => { 
-                
-        if(!ship.matches( '[class*=fly]')) {
-           
-           var number = ship.id.substr(ship.id.length - 1)
+       
 
-           console.log('toto');
+        if(ship.matches( '[class*=fly]')) {
+       
+            var number = ship.id.substr(ship.id.length - 1)
 
             if(number%2 == 0) {
-
                 document.getElementById('ship'+number).classList.remove('fly2')
-                console.log('tato');
             }  else {
-                
                 document.getElementById('ship'+number).classList.remove('fly')
-                console.log('tota');
             }
 
             if(ship.id == "ship1") {
-
+                document.getElementById('ship1').classList.remove('fly')
+                setTimeout(function(){
                 document.getElementById('ship1').classList.add('fly')
-
+                }, 100);
             }
         }
     })
-    
+
+    newgame()
+});
+
+function newgame() {
+   
     document.getElementById('new-game').classList.add('disabled')
     document.getElementById('new-game').style.display = "none";
 
